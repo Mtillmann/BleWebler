@@ -63,3 +63,12 @@ User Manual      : <a href="https://manuals.sit-connect.com/public/articlemanual
 
     // Add more printers here
 ];
+
+const originalP15PrinterConfig = window.supportedPrinters.find((e) => e.name === 'Marklife_P15');
+window.supportedPrinters.push({
+    ...originalP15PrinterConfig,
+    name : 'Pristar_P15', 
+    namePrefix : "P15R_",
+    pattern : /^P15R_.+?_BLE$/,
+    printerInfo : originalP15PrinterConfig.printerInfo.replace('Marklife P15', 'Pristar P15')
+})
